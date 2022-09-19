@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PMD-Reto1</string>
+    <string defaultButton="a" name="TODO">a</string>
+</resources>
