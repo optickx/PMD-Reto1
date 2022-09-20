@@ -22,10 +22,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // we make every element visible.
-        button = (Button) findViewById(R.id.checkButton);
+        text = (TextView)
+                findViewById(
+                        R.id.inputText);
+        userNumberString = (EditText)
+                findViewById(
+                        R.id.userTextNumber);
+        button = (Button)
+                findViewById(
+                        R.id.checkButton);
+        // turn on button.
         button.setOnClickListener(this);
-        text = (TextView) findViewById(R.id.inputText);
-        userNumberString = (EditText) findViewById(R.id.userTextNumber);
     }
 
     public void onClick(View pView) {
@@ -44,31 +51,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             .getText()
                                 .toString();
             // save result of operation.
-            int check =
+            int result =
                     Operations
                             .isPrime(userInput),
-                key = 0;
+                outputTextKey = 0;
             // change value depending on result.
-            if (check == 0)
-                key = R.string.resultComposite;
-            else if (check == 1)
-                key = R.string.resultPrime;
+            if (result == 0)
+                outputTextKey = R.string.resultComposite;
+            else if (result == 1)
+                outputTextKey = R.string.resultPrime;
             else
-                key = R.string.errorNotNumber;
+                outputTextKey = R.string.errorNotNumber;
 
+            // put the result on TextView.
             text.setText(
-                    getString(key));
-            userNumberString.setText(
-                    getString(
-                            R.string.userInputSample));
+                    getString(outputTextKey));
+            // change button text.
             button.setText(
                     buttonPressedText);
         }
         else if (button.getText().equals(buttonPressedText)) {
-            button.setText(buttonDefaultText);
             text.setText(
                     getString(
                             R.string.intructions));
+            button.setText(
+                    buttonDefaultText);
+
             userNumberString.setText("");
         }
     }
