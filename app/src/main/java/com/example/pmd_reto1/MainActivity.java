@@ -29,50 +29,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View pView) {
-        String textID;
-
+        // storing the two text values in the button.
         String
                 buttonDefaultText =
                     getString(R.string.buttonDefault),
                 buttonPressedText =
                         getString(R.string.buttonPressed);
 
-
+        // check the state of the button
         if (button.getText().equals(buttonDefaultText)) {
-            // collect text on TextView
-            String input =
+            // store user input on string.
+            String userInput =
                     userNumberString
                             .getText()
                                 .toString();
+            // save result of operation.
             int check =
                     Operations
-                            .isPrime(input);
+                            .isPrime(userInput),
+                key = 0;
+            // change value depending on result.
             if (check == 0)
-                message = "Yo is complex";
+                key = R.string.resultComposite;
             else if (check == 1)
-                message = "Yo is prime";
+                key = R.string.resultPrime;
             else
-                message = "Put a number ye cunt!";
+                key = R.string.errorNotNumber;
 
-            switch (check) {
-                case 0:
-
-            }
-
-            text.setText(message);
-            userNumberString.setText("Yer number.");
-            button.setText(buttonPressedText);
+            text.setText(
+                    getString(key));
+            userNumberString.setText(
+                    getString(
+                            R.string.userInputSample));
+            button.setText(
+                    buttonPressedText);
         }
         else if (button.getText().equals(buttonPressedText)) {
             button.setText(buttonDefaultText);
-            text.setText("Input a prime number.");
+            text.setText(
+                    getString(
+                            R.string.intructions));
+            userNumberString.setText("");
         }
-
-
-
-
     }
-
-
-
 }
