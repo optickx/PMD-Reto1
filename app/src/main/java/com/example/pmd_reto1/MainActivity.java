@@ -29,9 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View pView) {
-        String message;
+        String textID;
 
-        if (button.getText().equals("Check")) {
+        String
+                buttonDefaultText =
+                    getString(R.string.buttonDefault),
+                buttonPressedText =
+                        getString(R.string.buttonPressed);
+
+
+        if (button.getText().equals(buttonDefaultText)) {
             // collect text on TextView
             String input =
                     userNumberString
@@ -47,12 +54,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else
                 message = "Put a number ye cunt!";
 
+            switch (check) {
+                case 0:
+                    
+            }
+
             text.setText(message);
             userNumberString.setText("Yer number.");
-            button.setText("Reset");
+            button.setText(buttonPressedText);
         }
-        else if (button.getText().equals("Reset")) {
-            button.setText("Check");
+        else if (button.getText().equals(buttonPressedText)) {
+            button.setText(buttonDefaultText);
             text.setText("Input a prime number.");
         }
 

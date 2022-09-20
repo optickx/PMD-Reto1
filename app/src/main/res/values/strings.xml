@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">PMD-Reto1</string>
-    <string defaultButton="a" name="TODO">a</string>
+    <string name="intructions">Input a prime number.</string>
+
+    <string name="buttonDefault">Check</string>
+    <string name="buttonPressed">Reset</string>
+
+    <string name="resultComplex">Yo is complex</string>
+    <string name="resultCPrime">Yo is prime</string>
+    <string name="errorNotNumber">Put a number ye cunt!</string>
+
 </resources>
