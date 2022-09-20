@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (check) {
                 case 0:
-                    
+
             }
 
             text.setText(message);
